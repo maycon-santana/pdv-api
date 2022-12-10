@@ -1,6 +1,5 @@
 package br.com.mayconinforgames.pdv.model;
 
-import br.com.mayconinforgames.pdv.model.enums.Endereco;
 import br.com.mayconinforgames.pdv.model.enums.Perfil;
 import com.fasterxml.jackson.annotation.JsonFormat;
 

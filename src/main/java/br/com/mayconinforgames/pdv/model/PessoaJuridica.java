@@ -5,9 +5,9 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "pessoa_fisica")
+@Table(name = "pessoa_juridica")
 @PrimaryKeyJoinColumn(name = "id")
-public class PessoaFisica extends  Pessoa{
+public class PessoaJuridica extends Pessoa {
 
     private String cnpj;
     private String inscEstadual;
@@ -16,12 +16,12 @@ public class PessoaFisica extends  Pessoa{
     private String razaoSocial;
     private String categoria;
 
-    public PessoaFisica() {
+    public PessoaJuridica() {
     }
 
-    public PessoaFisica(Long id, String nome, String email, String senha, String cnpj,
-                        String inscEstadual, String inscMunicipal, String nomeFantasia,
-                        String razaoSocial, String categoria) {
+    public PessoaJuridica(Long id, String nome, String email, String senha, String cnpj,
+                          String inscEstadual, String inscMunicipal, String nomeFantasia,
+                          String razaoSocial, String categoria) {
         super(id, nome, email, senha);
         this.cnpj = cnpj;
         this.inscEstadual = inscEstadual;

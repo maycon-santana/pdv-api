@@ -1,6 +1,4 @@
-package br.com.mayconinforgames.pdv.model.enums;
-
-import br.com.mayconinforgames.pdv.model.Pessoa;
+package br.com.mayconinforgames.pdv.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
