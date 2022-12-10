@@ -1,4 +1,4 @@
-package br.com.mayconinforgames.pdv.pdvapi;
+package br.com.mayconinforgames.pdv;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
