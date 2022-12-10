@@ -3,11 +3,14 @@ package br.com.mayconinforgames.pdv.model;
 import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "pessoa_juridica")
 @PrimaryKeyJoinColumn(name = "id")
 public class PessoaJuridica extends Pessoa {
+
+    private static final long serialVersionUID = 1L;
 
     private String cnpj;
     private String inscEstadual;
@@ -19,10 +22,12 @@ public class PessoaJuridica extends Pessoa {
     public PessoaJuridica() {
     }
 
-    public PessoaJuridica(Long id, String nome, String email, String senha, String cnpj,
-                          String inscEstadual, String inscMunicipal, String nomeFantasia,
-                          String razaoSocial, String categoria) {
-        super(id, nome, email, senha);
+    public PessoaJuridica(Long id, String nome, String email, String telefone,
+                          String logradouro, String cep, String numero, String complemento,
+                          String bairro, String uf, String cidade, LocalDate dataCriacao, String cnpj,
+                          String inscEstadual, String inscMunicipal, String nomeFantasia, String razaoSocial,
+                          String categoria) {
+        super(id, nome, email, telefone, logradouro, cep, numero, complemento, bairro, uf, cidade, dataCriacao);
         this.cnpj = cnpj;
         this.inscEstadual = inscEstadual;
         this.inscMunicipal = inscMunicipal;

@@ -7,8 +7,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.*;
-import java.util.stream.Collectors;
-
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
@@ -25,29 +23,45 @@ public abstract class Pessoa implements Serializable {
 
     private String email;
 
-    private String senha;
+    private String telefone;
 
-    @OneToMany(mappedBy = "pessoa", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Endereco> enderecos = new ArrayList<>();
+    private String logradouro;
 
-    @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "PERFIS")
-    private Set<Integer> perfis = new HashSet<>();
+    private String cep;
+
+    private String numero;
+
+    private String complemento;
+
+    private String bairro;
+
+    private String uf;
+
+    private String cidade;
 
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataCriacao = LocalDate.now();
 
     public Pessoa() {
         super();
-        addPerfil(Perfil.CLIENTE);
     }
 
-    public Pessoa(Long id, String nome, String email, String senha) {
+    public Pessoa(Long id, String nome, String email,
+                  String telefone, String logradouro, String cep,
+                  String numero, String complemento, String bairro,
+                  String uf, String cidade, LocalDate dataCriacao) {
         this.id = id;
         this.nome = nome;
         this.email = email;
-        this.senha = senha;
-        addPerfil(Perfil.CLIENTE);
+        this.telefone = telefone;
+        this.logradouro = logradouro;
+        this.cep = cep;
+        this.numero = numero;
+        this.complemento = complemento;
+        this.bairro = bairro;
+        this.uf = uf;
+        this.cidade = cidade;
+        this.dataCriacao = dataCriacao;
     }
 
     public Long getId() {
@@ -56,14 +70,6 @@ public abstract class Pessoa implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public List<Endereco> getEnderecos() {
-        return enderecos;
-    }
-
-    public void setEnderecos(List<Endereco> enderecos) {
-        this.enderecos = enderecos;
     }
 
     public String getNome() {
@@ -82,20 +88,68 @@ public abstract class Pessoa implements Serializable {
         this.email = email;
     }
 
-    public String getSenha() {
-        return senha;
+    public String getTelefone() {
+        return telefone;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
-    public Set<Perfil> getPerfis() {
-        return perfis.stream().map(x -> Perfil.toEnum(x)).collect(Collectors.toSet());
+    public String getLogradouro() {
+        return logradouro;
     }
 
-    public void addPerfil(Perfil perfil) {
-        this.perfis.add(perfil.getCodigo());
+    public void setLogradouro(String logradouro) {
+        this.logradouro = logradouro;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public String getUf() {
+        return uf;
+    }
+
+    public void setUf(String uf) {
+        this.uf = uf;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
     }
 
     public LocalDate getDataCriacao() {
