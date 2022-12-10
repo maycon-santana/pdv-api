@@ -2,6 +2,7 @@ package br.com.mayconinforgames.pdv.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -24,8 +25,11 @@ public class Cliente extends Pessoa {
         super();
     }
 
-    public Cliente(Long id, String nome, String email, String senha, String cpf, String rg, Date dataNascimento) {
-        super(id, nome, email, senha);
+    public Cliente(Long id, String nome, String email, String telefone,
+                   String logradouro, String cep, String numero, String complemento,
+                   String bairro, String uf, String cidade, LocalDate dataCriacao,
+                   String cpf, String rg, Date dataNascimento) {
+        super(id, nome, email, telefone, logradouro, cep, numero, complemento, bairro, uf, cidade, dataCriacao);
         this.cpf = cpf;
         this.rg = rg;
         this.dataNascimento = dataNascimento;
