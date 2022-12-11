@@ -3,9 +3,7 @@ package br.com.mayconinforgames.pdv.model.dtos;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-import br.com.mayconinforgames.pdv.model.Fornecedor;
 import br.com.mayconinforgames.pdv.model.Produto;
-import br.com.mayconinforgames.pdv.model.enums.Categoria;
 
 public class ProdutoDTO implements Serializable {
 
@@ -23,9 +21,11 @@ public class ProdutoDTO implements Serializable {
 
 	private Integer quantidade;
 
-	private Categoria categoria;
+	private Integer categoria;
 
-	private Fornecedor fornecedor;
+	private Long fornecedor;
+
+	private String nomeFornecedor;
 
 	public ProdutoDTO() {
 		super();
@@ -39,8 +39,9 @@ public class ProdutoDTO implements Serializable {
 		this.precoVenda = obj.getPrecoVenda();
 		this.precoCompra = obj.getPrecoCompra();
 		this.quantidade = obj.getQuantidade();
-		this.categoria = obj.getCategoria();
-		this.fornecedor = obj.getFornecedor();
+		this.categoria = obj.getCategoria().getCodigo();
+		this.fornecedor = obj.getFornecedor().getId();
+		this.nomeFornecedor = obj.getFornecedor().getNome();
 	}
 
 	public Long getId() {
@@ -91,20 +92,28 @@ public class ProdutoDTO implements Serializable {
 		this.quantidade = quantidade;
 	}
 
-	public Categoria getCategoria() {
+	public Integer getCategoria() {
 		return categoria;
 	}
 
-	public void setCategoria(Categoria categoria) {
+	public void setCategoria(Integer categoria) {
 		this.categoria = categoria;
 	}
 
-	public Fornecedor getFornecedor() {
+	public Long getFornecedor() {
 		return fornecedor;
 	}
 
-	public void setFornecedor(Fornecedor fornecedor) {
+	public void setFornecedor(Long fornecedor) {
 		this.fornecedor = fornecedor;
+	}
+
+	public String getNomeFornecedor() {
+		return nomeFornecedor;
+	}
+
+	public void setNomeFornecedor(String nomeFornecedor) {
+		this.nomeFornecedor = nomeFornecedor;
 	}
 
 }
