@@ -1,5 +1,8 @@
 package br.com.mayconinforgames.pdv.resources;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,5 +26,14 @@ public class ProdutoResources {
         Produto obj = produtoService.findById(id);
         return ResponseEntity.ok().body(new ProdutoDTO(obj));
     }
+    
+    @GetMapping
+    public ResponseEntity<List<ProdutoDTO>> findAll() {
+    	List<Produto> list = produtoService.findAll();
+    	List<ProdutoDTO> listDTO = list.stream().map(obj -> new ProdutoDTO(obj)).collect(Collectors.toList());
+    	return ResponseEntity.ok().body(listDTO);
+    }
 
+    
+    
 }
