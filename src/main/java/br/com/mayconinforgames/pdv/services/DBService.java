@@ -1,5 +1,6 @@
 package br.com.mayconinforgames.pdv.services;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Arrays;
 
@@ -7,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.mayconinforgames.pdv.model.Cliente;
+import br.com.mayconinforgames.pdv.model.Produto;
+import br.com.mayconinforgames.pdv.model.enums.Categoria;
 import br.com.mayconinforgames.pdv.repositories.ClienteRepository;
 import br.com.mayconinforgames.pdv.repositories.ProdutoRepository;
 
@@ -24,8 +27,10 @@ public class DBService {
     			"99999999", "Rua A", "56000-000", "21", "Casa", "Centro", "PE", 
     			"Garanhuns", LocalDate.now(), "880.871.360-12", "19.097.147-2", null);
     	
-    	clienteRepository.saveAll(Arrays.asList(c1));
+    	Produto p1 = new Produto(null, "Açucar 1KG", "4444", new BigDecimal("4.7"), new BigDecimal("3.3"), 50, Categoria.CEREAIS_GRAOS, c1);
     	
+    	clienteRepository.saveAll(Arrays.asList(c1));
+    	produtoRepository.saveAll(Arrays.asList(p1));
         
     }
 
