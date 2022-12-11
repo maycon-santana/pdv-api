@@ -6,7 +6,6 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import br.com.mayconinforgames.pdv.model.Fornecedor;
@@ -19,16 +18,16 @@ import br.com.mayconinforgames.pdv.services.exceptions.ObjectNotFoundException;
 @Service
 public class ProdutoService {
 
-    @Autowired
-    private ProdutoRepository produtoRepository;
-    
-    @Autowired
-    private FornecedorService fornecedorService;
+	@Autowired
+	private ProdutoRepository produtoRepository;
 
-    public Produto findById(Long id) {
-        Optional<Produto> obj = produtoRepository.findById(id);
-        return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! Id: " + id));
-    }
+	@Autowired
+	private FornecedorService fornecedorService;
+
+	public Produto findById(Long id) {
+		Optional<Produto> obj = produtoRepository.findById(id);
+		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! Id: " + id));
+	}
 
 	public List<Produto> findAll() {
 		return produtoRepository.findAll();
@@ -37,22 +36,27 @@ public class ProdutoService {
 	public Produto create(@Valid ProdutoDTO objDTO) {
 		return produtoRepository.save(newProduto(objDTO));
 	}
-	
+
 	public Produto update(Long id, @Valid ProdutoDTO objDTO) {
 		objDTO.setId(id);
 		Produto oldObj = findById(id);
 		oldObj = newProduto(objDTO);
 		return produtoRepository.save(oldObj);
 	}
-	
+
+	public void delete(Long id) {
+		Produto obj = findById(id);
+		produtoRepository.deleteById(id);
+	}
+
 	private Produto newProduto(ProdutoDTO obj) {
 		Fornecedor fornecedor = fornecedorService.findById(obj.getFornecedor());
-		
+
 		Produto produto = new Produto();
 		if (obj.getId() != null) {
 			produto.setId(obj.getId());
 		}
-		
+
 		produto.setFornecedor(fornecedor);
 		produto.setNome(obj.getNome());
 		produto.setCodBarras(obj.getCodBarras());
@@ -62,6 +66,5 @@ public class ProdutoService {
 		produto.setCategoria(Categoria.toEnum(obj.getCategoria()));
 		return produto;
 	}
-	
 
 }
