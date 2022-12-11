@@ -3,6 +3,8 @@ package br.com.mayconinforgames.pdv.services;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,7 +35,15 @@ public class ClienteService {
 		Cliente newObj = new Cliente(objDTO);
 		return clienteRepository.save(newObj);
 	}
-
+	
+	public Cliente update(Long id, @Valid ClienteDTO objDTO) {
+		objDTO.setId(id);
+		Cliente oldObj = findById(id);
+		validarPorCPFeRG(objDTO);
+		oldObj = new Cliente(objDTO);
+		return clienteRepository.save(oldObj);
+	}
+	
 	private void validarPorCPFeRG(ClienteDTO objDTO) {
 		Optional<Cliente> obj = clienteRepository.findByCpf(objDTO.getCpf());
 		if (obj.isPresent() && obj.get().getId() != objDTO.getId()) {
