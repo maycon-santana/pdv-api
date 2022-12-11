@@ -1,9 +1,14 @@
 package br.com.mayconinforgames.pdv.model;
 
-import javax.persistence.*;
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "cliente")
@@ -27,8 +32,8 @@ public class Cliente extends Pessoa {
 
     public Cliente(Long id, String nome, String email, String telefone,
                    String logradouro, String cep, String numero, String complemento,
-                   String bairro, String uf, String cidade, LocalDate dataCriacao,
-                   String cpf, String rg, Date dataNascimento) {
+                   String bairro, String uf, String cidade, LocalDate dataCriacao, String cpf,
+                   String rg, Date dataNascimento) {
         super(id, nome, email, telefone, logradouro, cep, numero, complemento, bairro, uf, cidade, dataCriacao);
         this.cpf = cpf;
         this.rg = rg;

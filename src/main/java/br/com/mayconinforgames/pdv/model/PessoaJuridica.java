@@ -1,9 +1,12 @@
 package br.com.mayconinforgames.pdv.model;
 
-import javax.persistence.Entity;
-import javax.persistence.PrimaryKeyJoinColumn;
-import javax.persistence.Table;
+import br.com.mayconinforgames.pdv.model.enums.Categoria;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "pessoa_juridica")
@@ -17,16 +20,15 @@ public class PessoaJuridica extends Pessoa {
     private String inscMunicipal;
     private String nomeFantasia;
     private String razaoSocial;
-    private String categoria;
+    private Categoria categoria;
 
     public PessoaJuridica() {
     }
 
-    public PessoaJuridica(Long id, String nome, String email, String telefone,
-                          String logradouro, String cep, String numero, String complemento,
-                          String bairro, String uf, String cidade, LocalDate dataCriacao, String cnpj,
-                          String inscEstadual, String inscMunicipal, String nomeFantasia, String razaoSocial,
-                          String categoria) {
+    public PessoaJuridica(Long id, String nome, String email, String telefone, String logradouro,
+                          String cep, String numero, String complemento, String bairro, String uf,
+                          String cidade, LocalDate dataCriacao, String cnpj, String inscEstadual,
+                          String inscMunicipal, String nomeFantasia, String razaoSocial, Categoria categoria) {
         super(id, nome, email, telefone, logradouro, cep, numero, complemento, bairro, uf, cidade, dataCriacao);
         this.cnpj = cnpj;
         this.inscEstadual = inscEstadual;
@@ -76,11 +78,11 @@ public class PessoaJuridica extends Pessoa {
         this.razaoSocial = razaoSocial;
     }
 
-    public String getCategoria() {
+    public Categoria getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(String categoria) {
+    public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
 
