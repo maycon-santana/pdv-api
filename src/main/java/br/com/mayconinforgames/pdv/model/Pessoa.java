@@ -22,30 +22,30 @@ public abstract class Pessoa implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_pessoa")
-    private Long id;
+    protected Long id;
 
-    private String nome;
+    protected String nome;
 
-    private String email;
+    protected String email;
 
-    private String telefone;
+    protected String telefone;
 
-    private String logradouro;
+    protected String logradouro;
 
-    private String cep;
+    protected String cep;
 
-    private String numero;
+    protected String numero;
 
-    private String complemento;
+    protected String complemento;
 
-    private String bairro;
+    protected String bairro;
 
-    private String uf;
+    protected String uf;
 
-    private String cidade;
+    protected String cidade;
 
     @JsonFormat(pattern = "dd/MM/yyyy")
-    private LocalDate dataCriacao = LocalDate.now();
+    protected LocalDate dataCriacao = LocalDate.now();
 
     public Pessoa() {
         super();
