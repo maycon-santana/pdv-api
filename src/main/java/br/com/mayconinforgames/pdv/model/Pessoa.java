@@ -43,6 +43,7 @@ public abstract class Pessoa implements Serializable {
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataCriacao = LocalDate.now();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "pessoa", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Produto> produtos = new ArrayList<Produto>();
 
