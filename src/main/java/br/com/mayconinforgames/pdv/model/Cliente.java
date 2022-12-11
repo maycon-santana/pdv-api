@@ -15,53 +15,52 @@ import javax.persistence.TemporalType;
 @PrimaryKeyJoinColumn(name = "id")
 public class Cliente extends Pessoa {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    @Column(nullable = false)
-    private String cpf;
+	@Column(nullable = false)
+	private String cpf;
 
-    @Column(nullable = false)
-    private String rg;
+	@Column(nullable = false)
+	private String rg;
 
-    @Temporal(TemporalType.DATE)
-    private Date dataNascimento;
+	@Temporal(TemporalType.DATE)
+	private Date dataNascimento;
 
-    public Cliente() {
-        super();
-    }
+	public Cliente() {
+		super();
+	}
 
-    public Cliente(Long id, String nome, String email, String telefone,
-                   String logradouro, String cep, String numero, String complemento,
-                   String bairro, String uf, String cidade, LocalDate dataCriacao, String cpf,
-                   String rg, Date dataNascimento) {
-        super(id, nome, email, telefone, logradouro, cep, numero, complemento, bairro, uf, cidade, dataCriacao);
-        this.cpf = cpf;
-        this.rg = rg;
-        this.dataNascimento = dataNascimento;
-    }
+	public Cliente(Long id, String nome, String email, String telefone, String logradouro, String cep, String numero,
+			String complemento, String bairro, String uf, String cidade, LocalDate dataCriacao, String cpf, String rg,
+			Date dataNascimento) {
+		super(id, nome, email, telefone, logradouro, cep, numero, complemento, bairro, uf, cidade, dataCriacao);
+		this.cpf = cpf;
+		this.rg = rg;
+		this.dataNascimento = dataNascimento;
+	}
 
-    public String getCpf() {
-        return cpf;
-    }
+	public String getCpf() {
+		return cpf;
+	}
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
 
-    public String getRg() {
-        return rg;
-    }
+	public String getRg() {
+		return rg;
+	}
 
-    public void setRg(String rg) {
-        this.rg = rg;
-    }
+	public void setRg(String rg) {
+		this.rg = rg;
+	}
 
-    public Date getDataNascimento() {
-        return dataNascimento;
-    }
+	public Date getDataNascimento() {
+		return dataNascimento;
+	}
 
-    public void setDataNascimento(Date dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
+	public void setDataNascimento(Date dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
 
 }
