@@ -29,10 +29,12 @@ public class Cliente extends Pessoa {
 		super();
 	}
 
-	public Cliente(Long id, String nome, String email, String telefone, 
-			String logradouro, String cep, String numero,
-			String complemento, String bairro, String uf, String cidade) {
+	public Cliente(Long id, String nome, String email, String telefone, String logradouro, String cep, String numero,
+			String complemento, String bairro, String uf, String cidade, String cpf, String rg, Date dataNascimento) {
 		super(id, nome, email, telefone, logradouro, cep, numero, complemento, bairro, uf, cidade);
+		this.cpf = cpf;
+		this.rg = rg;
+		this.dataNascimento = dataNascimento;
 	}
 
 	public String getCpf() {

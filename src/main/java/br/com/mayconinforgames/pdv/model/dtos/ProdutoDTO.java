@@ -3,6 +3,8 @@ package br.com.mayconinforgames.pdv.model.dtos;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+import javax.validation.constraints.NotNull;
+
 import br.com.mayconinforgames.pdv.model.Produto;
 
 public class ProdutoDTO implements Serializable {
@@ -11,18 +13,24 @@ public class ProdutoDTO implements Serializable {
 
 	private Long id;
 
+	@NotNull(message = "O campo NOME é requerido")
 	private String nome;
 
 	private String codBarras;
 
+	@NotNull(message = "O campo PREÇO DA VENDA é requerido")
 	private BigDecimal precoVenda;
 
+	@NotNull(message = "O campo PREÇO DE COMPRA é requerido")
 	private BigDecimal precoCompra;
 
+	@NotNull(message = "O campo QUANTIDADE é requerido")
 	private Integer quantidade;
 
+	@NotNull(message = "O campo CATEGORIA é requerido")
 	private Integer categoria;
 
+	@NotNull(message = "O campo FORNECEDOR é requerido")
 	private Long fornecedor;
 
 	private String nomeFornecedor;
