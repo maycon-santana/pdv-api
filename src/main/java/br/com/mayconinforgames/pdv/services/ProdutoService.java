@@ -6,6 +6,7 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import br.com.mayconinforgames.pdv.model.Fornecedor;
@@ -37,6 +38,13 @@ public class ProdutoService {
 		return produtoRepository.save(newProduto(objDTO));
 	}
 	
+	public Produto update(Long id, @Valid ProdutoDTO objDTO) {
+		objDTO.setId(id);
+		Produto oldObj = findById(id);
+		oldObj = newProduto(objDTO);
+		return produtoRepository.save(oldObj);
+	}
+	
 	private Produto newProduto(ProdutoDTO obj) {
 		Fornecedor fornecedor = fornecedorService.findById(obj.getFornecedor());
 		
@@ -54,5 +62,6 @@ public class ProdutoService {
 		produto.setCategoria(Categoria.toEnum(obj.getCategoria()));
 		return produto;
 	}
+	
 
 }
