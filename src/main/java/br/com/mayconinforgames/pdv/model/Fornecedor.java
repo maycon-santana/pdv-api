@@ -1,6 +1,5 @@
 package br.com.mayconinforgames.pdv.model;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,17 +35,9 @@ public class Fornecedor extends Pessoa {
 	public Fornecedor() {
 	}
 
-	public Fornecedor(Long id, String nome, String email, String telefone, String logradouro, String cep,
-			String numero, String complemento, String bairro, String uf, String cidade, LocalDate dataCriacao,
-			String cnpj, String inscEstadual, String inscMunicipal, String nomeFantasia, String razaoSocial,
-			Categoria categoria) {
-		super(id, nome, email, telefone, logradouro, cep, numero, complemento, bairro, uf, cidade, dataCriacao);
-		this.cnpj = cnpj;
-		this.inscEstadual = inscEstadual;
-		this.inscMunicipal = inscMunicipal;
-		this.nomeFantasia = nomeFantasia;
-		this.razaoSocial = razaoSocial;
-		this.categoria = categoria;
+	public Fornecedor(Long id, String nome, String email, String telefone, 
+			String logradouro, String cep, String numero, String complemento, String bairro, String uf, String cidade) {
+		super(id, nome, email, telefone, logradouro, cep, numero, complemento, bairro, uf, cidade);
 	}
 
 	public String getCnpj() {

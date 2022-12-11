@@ -54,7 +54,7 @@ public abstract class Pessoa implements Serializable {
     public Pessoa(Long id, String nome, String email,
                   String telefone, String logradouro, String cep,
                   String numero, String complemento, String bairro,
-                  String uf, String cidade, LocalDate dataCriacao) {
+                  String uf, String cidade) {
         this.id = id;
         this.nome = nome;
         this.email = email;
@@ -66,7 +66,6 @@ public abstract class Pessoa implements Serializable {
         this.bairro = bairro;
         this.uf = uf;
         this.cidade = cidade;
-        this.dataCriacao = dataCriacao;
     }
 
     public Long getId() {
