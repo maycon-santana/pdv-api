@@ -3,8 +3,8 @@ package br.com.mayconinforgames.pdv.model.enums;
 public enum Perfil {
 
     ADMIN(0, "ROLE_ADMIN"),
-    ATENDENTE(1, "ROLE_ATENDENTE"),
-    CLIENTE(2, "ROLE_CLIENTE");
+    GERENTE(1, "ROLE_GERENTE"),
+    ATENDENTE(2, "ROLE_ATENDENTE");
 
     private Integer codigo;
     private String descricao;

@@ -3,14 +3,6 @@ package br.com.mayconinforgames.pdv.model.dtos;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-import javax.persistence.ConstraintMode;
-import javax.persistence.ForeignKey;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
 import br.com.mayconinforgames.pdv.model.Pessoa;
 import br.com.mayconinforgames.pdv.model.Produto;
 import br.com.mayconinforgames.pdv.model.enums.Categoria;

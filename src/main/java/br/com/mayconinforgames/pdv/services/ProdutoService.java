@@ -1,14 +1,13 @@
 package br.com.mayconinforgames.pdv.services;
 
-import br.com.mayconinforgames.pdv.model.Cliente;
-import br.com.mayconinforgames.pdv.model.Produto;
-import br.com.mayconinforgames.pdv.repositories.ClienteRepository;
-import br.com.mayconinforgames.pdv.repositories.ProdutoRepository;
-import br.com.mayconinforgames.pdv.services.exceptions.ObjectNotFoundException;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import br.com.mayconinforgames.pdv.model.Produto;
+import br.com.mayconinforgames.pdv.repositories.ProdutoRepository;
+import br.com.mayconinforgames.pdv.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class ProdutoService {
