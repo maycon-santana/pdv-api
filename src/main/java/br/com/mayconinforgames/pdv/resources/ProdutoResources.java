@@ -8,6 +8,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -54,5 +55,11 @@ public class ProdutoResources {
     	Produto newObj = produtoService.update(id, objDTO);
     	return ResponseEntity.ok().body(new ProdutoDTO(newObj));
     }
+    
+    @DeleteMapping(value = "/{id}")
+	public ResponseEntity<ProdutoDTO> delete(@PathVariable Long id) {
+		produtoService.delete(id);
+		return ResponseEntity.noContent().build();
+	}
     
 }
