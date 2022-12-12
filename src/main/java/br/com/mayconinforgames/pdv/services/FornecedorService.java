@@ -42,6 +42,11 @@ public class FornecedorService {
 		return fornecedorRepository.save(oldObj);
 	}
 	
+	public void delete(Long id) {
+		Fornecedor obj = findById(id);
+		fornecedorRepository.deleteById(id);
+	}
+	
 	private void validarPorCNPJ(FornecedorDTO objDTO) {
 		Optional<Fornecedor> obj = fornecedorRepository.findByCnpj(objDTO.getCnpj());
 		if (obj.isPresent() && obj.get().getId() != objDTO.getId()) {
