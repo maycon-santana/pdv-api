@@ -9,7 +9,9 @@ public enum Categoria {
     LIMPEZA(4, "LIMPEZA"),
     HIGIENE_PESSOAL(5, "HIGIENE_PESSOAL"),
     BEBIDAS(6, "BEBIDAS"),
-    PAPELARIA(7, "PAPELARIA");
+    PAPELARIA(7, "PAPELARIA"),
+	OUTROS(8, "OUTROS"),
+	TODAS_CATEGORIAS(9, "TODAS_CATEGORIAS");
 
     private Integer codigo;
     private String descricao;
