@@ -1,13 +1,14 @@
 package br.com.mayconinforgames.pdv.resources.exceptions;
 
-import br.com.mayconinforgames.pdv.services.exceptions.DataIntegrityViolationException;
-import br.com.mayconinforgames.pdv.services.exceptions.ObjectNotFoundException;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import javax.servlet.http.HttpServletRequest;
+import br.com.mayconinforgames.pdv.services.exceptions.DataIntegrityViolationException;
+import br.com.mayconinforgames.pdv.services.exceptions.ObjectNotFoundException;
 
 @ControllerAdvice
 public class ResourceExceptionHandler {

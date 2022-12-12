@@ -1,9 +1,5 @@
 package br.com.mayconinforgames.pdv.resources;
 
-import br.com.mayconinforgames.pdv.model.Cliente;
-import br.com.mayconinforgames.pdv.model.dtos.ClienteDTO;
-import br.com.mayconinforgames.pdv.services.ClienteService;
-
 import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,6 +17,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import br.com.mayconinforgames.pdv.model.Cliente;
+import br.com.mayconinforgames.pdv.model.dtos.ClienteDTO;
+import br.com.mayconinforgames.pdv.services.ClienteService;
 
 @RestController
 @RequestMapping(value = "/pdv/api/clientes")

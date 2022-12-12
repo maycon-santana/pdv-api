@@ -1,16 +1,17 @@
 package br.com.mayconinforgames.pdv.model.dtos;
 
-import br.com.mayconinforgames.pdv.model.Cliente;
-import com.fasterxml.jackson.annotation.JsonFormat;
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
-import java.io.Serializable;
-import java.time.LocalDate;
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import br.com.mayconinforgames.pdv.model.Cliente;
 
 public class ClienteDTO implements Serializable {
 
