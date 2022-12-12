@@ -20,6 +20,7 @@ import javax.persistence.SequenceGenerator;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import br.com.mayconinforgames.pdv.model.dtos.UsuarioDTO;
 import br.com.mayconinforgames.pdv.model.enums.Perfil;
 
 @Entity
@@ -30,7 +31,7 @@ public class Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_pessoa")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_usuario")
 	private Long id;
 
 	@Column(unique = true)
@@ -56,6 +57,15 @@ public class Usuario implements Serializable {
 		this.email = email;
 		this.senha = senha;
 		addPerfil(Perfil.ATENDENTE);
+	}
+	
+	public Usuario(UsuarioDTO obj) {
+		super();
+		this.id = obj.getId();
+		this.email = obj.getEmail();
+		this.senha = obj.getSenha();
+		this.perfis = obj.getPerfis().stream().map(x -> x.getCodigo()).collect(Collectors.toSet());
+		this.dataCriacao = obj.getDataCriacao();
 	}
 
 	public Long getId() {
