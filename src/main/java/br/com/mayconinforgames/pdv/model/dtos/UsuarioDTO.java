@@ -6,6 +6,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import javax.persistence.Column;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -16,9 +17,11 @@ public class UsuarioDTO {
 
 	private Long id;
 
+	@NotNull(message = "O campo E-MAIL é requerido")
 	@Column(unique = true)
 	private String email;
 
+	@NotNull(message = "O campo SENHA é requerido")
 	private String senha;
 
 	private Set<Integer> perfis = new HashSet<>();
