@@ -3,6 +3,8 @@ package br.com.mayconinforgames.pdv.model.dtos;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+import javax.validation.constraints.NotNull;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import br.com.mayconinforgames.pdv.model.Fornecedor;
@@ -13,31 +15,49 @@ public class FornecedorDTO implements Serializable {
 
 	private Long id;
 
+	@NotNull(message = "O campo NOME é requerido")
 	private String nome;
 
 	private String email;
 
+	@NotNull(message = "O campo TELEFONE é requerido")
 	private String telefone;
 
+	@NotNull(message = "O campo CNPJ é requerido")
 	private String cnpj;
+	
 	private String inscEstadual;
+	
 	private String inscMunicipal;
+	
+	@NotNull(message = "O campo NOME FANTASIA é requerido")
 	private String nomeFantasia;
+	
+	@NotNull(message = "O campo RAZÂO SOCIAL é requerido")
 	private String razaoSocial;
+	
+	@NotNull(message = "O campo CATEGORIA é requerido")
 	private Integer categoria;
 
+	@NotNull(message = "O campo LOGRADOURO é requerido")
 	private String logradouro;
 
+	@NotNull(message = "O campo CEP é requerido")
 	private String cep;
 
+	@NotNull(message = "O campo NÚMERO é requerido")
 	private String numero;
 
+	@NotNull(message = "O campo COMPLEMENTO é requerido")
 	private String complemento;
 
+	@NotNull(message = "O campo BAIRRO é requerido")
 	private String bairro;
 
+	@NotNull(message = "O campo UF é requerido")
 	private String uf;
 
+	@NotNull(message = "O campo CIDADE é requerido")
 	private String cidade;
 
 	@JsonFormat(pattern = "dd/MM/yyyy")

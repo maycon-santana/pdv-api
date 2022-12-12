@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import javax.persistence.Column;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
@@ -16,34 +18,44 @@ public class ClienteDTO implements Serializable {
 
     private Long id;
 
+    @NotNull(message = "O campo NOME é requerido")
     private String nome;
 
     private String email;
 
+    @NotNull(message = "O campo TELEFONE é requerido")
     private String telefone;
 
-
     @Column(nullable = false)
+    @NotNull(message = "O campo CPF é requerido")
     private String cpf;
 
     @Column(nullable = false)
+    @NotNull(message = "O campo RG é requerido")
     private String rg;
 
     @Temporal(TemporalType.DATE)
     private Date dataNascimento;
 
+    @NotNull(message = "O campo LOGRADOURO é requerido")
     private String logradouro;
 
+    @NotNull(message = "O campo CEP é requerido")
     private String cep;
 
+    @NotNull(message = "O campo NÚMERO é requerido")
     private String numero;
 
+    @NotNull(message = "O campo COMPLEMENTO é requerido")
     private String complemento;
 
+    @NotNull(message = "O campo BAIRRO é requerido")
     private String bairro;
 
+    @NotNull(message = "O campo UF é requerido")
     private String uf;
 
+    @NotNull(message = "O campo CIDADE é requerido")
     private String cidade;
 
     @JsonFormat(pattern = "dd/MM/yyyy")
