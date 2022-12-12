@@ -35,6 +35,13 @@ public class FornecedorService {
 		return fornecedorRepository.save(newFornecedor(objDTO));
 	}
 
+	public Fornecedor update(Long id, @Valid FornecedorDTO objDTO) {
+		objDTO.setId(id);
+		Fornecedor oldObj = findById(id);
+		oldObj = newFornecedor(objDTO);
+		return fornecedorRepository.save(oldObj);
+	}
+	
 	private void validarPorCNPJ(FornecedorDTO objDTO) {
 		Optional<Fornecedor> obj = fornecedorRepository.findByCnpj(objDTO.getCnpj());
 		if (obj.isPresent() && obj.get().getId() != objDTO.getId()) {
