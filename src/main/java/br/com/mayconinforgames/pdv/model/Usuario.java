@@ -14,8 +14,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.SequenceGenerator;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -24,7 +22,6 @@ import br.com.mayconinforgames.pdv.model.dtos.UsuarioDTO;
 import br.com.mayconinforgames.pdv.model.enums.Perfil;
 
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @SequenceGenerator(name = "seq_usuario", sequenceName = "seq_usuario", initialValue = 1, allocationSize = 1)
 public class Usuario implements Serializable {
 
@@ -32,19 +29,19 @@ public class Usuario implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_usuario")
-	private Long id;
+	protected Long id;
 
 	@Column(unique = true)
-	private String email;
+	protected String email;
 
-	private String senha;
+	protected String senha;
 
 	@ElementCollection(fetch = FetchType.EAGER)
 	@CollectionTable(name = "PERFIS")
-	private Set<Integer> perfis = new HashSet<>();
+	protected Set<Integer> perfis = new HashSet<>();
 
 	@JsonFormat(pattern = "dd/MM/yyyy")
-	private LocalDate dataCriacao = LocalDate.now();
+	protected LocalDate dataCriacao = LocalDate.now();
 
 	public Usuario() {
 		super();

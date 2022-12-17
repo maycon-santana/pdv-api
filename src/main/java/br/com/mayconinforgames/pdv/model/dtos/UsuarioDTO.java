@@ -15,19 +15,19 @@ import br.com.mayconinforgames.pdv.model.enums.Perfil;
 
 public class UsuarioDTO {
 
-	private Long id;
+	protected Long id;
 
 	@NotNull(message = "O campo E-MAIL é requerido")
 	@Column(unique = true)
-	private String email;
+	protected String email;
 
 	@NotNull(message = "O campo SENHA é requerido")
-	private String senha;
+	protected String senha;
 
-	private Set<Integer> perfis = new HashSet<>();
+	protected Set<Integer> perfis = new HashSet<>();
 
 	@JsonFormat(pattern = "dd/MM/yyyy")
-	private LocalDate dataCriacao = LocalDate.now();
+	protected LocalDate dataCriacao = LocalDate.now();
 
 	public UsuarioDTO() {
 		super();
